@@ -1,7 +1,16 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="menu">
+    
+    <router-link to="/">Inicio</router-link> |
+    
+    <router-link to="/anuncios">Anuncios</router-link> |
+    
+    <router-link to="/insertar">Insertar</router-link> |
+    
+    <router-link to="/modificar">Modificar</router-link> |
+    
+    <router-link to="/eliminar">Eliminar</router-link>
+    
   </div>
   <router-view/>
 </template>
@@ -14,17 +23,32 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
+#menu {
+  padding: 40px;
+  margin-top: 35px;
+  position: fixed;
+  left: 670px;
+  top: 0;
+  right: 0;
+  width: 30%;
+  background-color: white;
+  font-size: large;
 }
-
-#nav a {
+#menu a {
   font-weight: bold;
-  color: #2c3e50;
+  color: black;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#menu a.router-link-exact-active {
+  color: white;
+  text-shadow:
+		0 0 5px rgba(0,178,255,1),
+		0 0 10px rgba(0,178,255,1),
+		0 0 20px rgba(0,178,255,1),
+		0 0 40px rgba(38,104,127,1),
+		0 0 80px rgba(38,104,127,1),
+		0 0 90px rgba(38,104,127,1),
+		0 0 100px rgba(38,104,127,1),
+		0 0 140px rgba(38,104,127,1),
+		0 0 180px rgba(38,104,127,1);
 }
 </style>

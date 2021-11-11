@@ -6,8 +6,10 @@
     <div class="container">
       <div class="row">
         <img alt="Logo coche" src="../assets/logo-coche.jpg">
-        <div class="home">    
-          
+        <div class="anuncios">
+          <h1>Listado anuncios</h1>
+          <br>
+          <Listar/>
         </div>
       </div>
     </div>
@@ -15,10 +17,15 @@
 </template>
 
 <script>
+import Listar from '@/components/List.vue'
 export default {
-  
+  name: 'Anuncios',
+  components: {
+    Listar
+  }
 }
 </script>
+
 
 <style scoped>
 img{
@@ -30,15 +37,10 @@ img{
   top: 0;
   right: 0;
 }
-.home{
-  background-image: url("../assets/coche.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
+.anuncios{
   width: 1600px; 
-  height: 800px;
+  height: auto;
   margin-top: 150px;
-  
+  border: 1px solid black;
 }
 </style>
