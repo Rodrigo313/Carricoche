@@ -26,7 +26,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 img{
   width: 200px;
@@ -38,9 +37,9 @@ img{
   right: 0;
 }
 .anuncios{
-  width: 1600px; 
+  width: 1600px;
   height: auto;
   margin-top: 150px;
-  border: 1px solid black; 
+  border: 1px solid black;
 }
 </style>
