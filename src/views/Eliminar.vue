@@ -19,12 +19,13 @@
                     <th scope="col">Teléfono</th>
                     <th scope="col">Correo Electrónico</th>
                     <th scope="col">Precio en €</th>
+                    <th scope="col">Segunda mano</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(anuncios) in anuncio" :key="anuncios" @click="obtenerDelete(anuncios.id_anuncio)">
                     <td>{{anuncios.id_anuncio}}</td>
-                    <td>{{anuncios.animal}}</td>
+                    <td>{{anuncios.coche}}</td>
                     <td>
                         <span>
                             <ul v-for="(provincias) in provincias" :key="provincias">
@@ -35,6 +36,7 @@
                     <td>{{anuncios.telefono}}</td>
                     <td>{{anuncios.correo_electronico}}</td>
                     <td>{{anuncios.precio}}</td>
+                    <td>{{anuncios.segunda_mano}}</td>
                 </tr>
             </tbody>
         </table>
