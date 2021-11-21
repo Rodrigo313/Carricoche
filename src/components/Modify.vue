@@ -9,7 +9,7 @@
         <h4>Haz click en el id para comenzar a modificar el anuncio</h4>
 
         <ul v-for="(anuncios) in anuncio" :key="anuncios">
-            <li class="fantasia" v-if="this.informacionCommercial == anuncios.id_anuncio" @click="informacionAnuncios(anuncios.coche, anuncios.id_provincia, anuncios.telefono, anuncios.correo_electronico, anuncios.precio, anuncios.segunda_mano, anuncios.id_anuncio)">{{anuncios.id_anuncio}}</li>
+            <li class="info" v-if="this.informacionCommercial == anuncios.id_anuncio" @click="informacionAnuncios(anuncios.coche, anuncios.id_provincia, anuncios.telefono, anuncios.correo_electronico, anuncios.precio, anuncios.segunda_mano, anuncios.id_anuncio)">{{anuncios.id_anuncio}}</li>
         </ul>
         <br>
         <div v-if="ocultar != ''">
@@ -37,7 +37,7 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="number" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3">
+              <input type="text" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3">
           </div>
           <div class="error" v-if="var3.required">Campo obligatorio.</div>
 
@@ -48,7 +48,7 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Precio</span>
-              <input type="number" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5">
+              <input type="text" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5">
               <span class="input-group-text" id="basic-addon2">€</span>
           </div>
           <div class="error" v-if="var5.required">Campo obligatorio.</div>
@@ -61,7 +61,7 @@
                 <label class="form-check-label" for="si">Si</label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault" value="no" aria-describedby="basic-addon2" v-model="var6">
+                <input type="radio" class="form-check-input" name="flexRadioDefault2" value="no" aria-describedby="basic-addon2" v-model="var6">
                 <label class="form-check-label" for="no">No</label>
               </div>
           </div>
@@ -129,7 +129,8 @@ export default{
                 id_provincia: this.var2,
                 telefono: this.var3,
                 correo_electronico: this.var4,
-                precio: this.var5
+                precio: this.var5,
+                segunda_mano: this.var6
             };
             axios.put('http://localhost:8080/carricoche/v1/anuncios/'+ this.id, post)
         }
@@ -138,7 +139,13 @@ export default{
 </script>
 
 <style>
-.fantasia{
+input[name="flexRadioDefault"] {
+  margin-left: 10px;
+}
+input[name="flexRadioDefault2"] {
+  margin-left: 50px;
+}
+.info{
     list-style: none;
     font-size: x-large;
 }

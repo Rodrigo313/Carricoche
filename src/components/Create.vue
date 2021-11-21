@@ -22,7 +22,7 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="number" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3">
+              <input type="text" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3">
           </div>
           <div class="error" v-if="var3.required">Campo obligatorio.</div>
 
@@ -33,7 +33,7 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Precio</span>
-              <input type="number" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5">
+              <input type="text" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5">
               <span class="input-group-text" id="basic-addon2">€</span>
           </div>
           <div class="error" v-if="var5.required">Campo obligatorio.</div>
@@ -46,7 +46,7 @@
                 <label class="form-check-label" for="si">Si</label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault" value="no" aria-describedby="basic-addon2" v-model="var6">
+                <input type="radio" class="form-check-input" name="flexRadioDefault2" value="no" aria-describedby="basic-addon2" v-model="var6">
                 <label class="form-check-label" for="no">No</label>
               </div>
           </div>
@@ -122,3 +122,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+input[name="flexRadioDefault"] {
+  margin-left: 10px;
+}
+input[name="flexRadioDefault2"] {
+  margin-left: 50px;
+}
+</style>

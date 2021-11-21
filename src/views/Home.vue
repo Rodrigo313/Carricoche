@@ -5,9 +5,10 @@
   <body>
     <div class="container">
       <div class="row">
-        <img alt="Logo coche" src="../assets/logo-coche.jpg">
-        <div class="home">    
-          
+        <div class="col"><img alt="Logo coche" src="../assets/logo-coche.jpg"></div>
+        <div class="col"><img alt="Logo coche 2" id="logoLargo" src="../assets/logo-coche2.jpg"></div>
+        <div class="home">
+
         </div>
       </div>
     </div>
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-  
+
 }
 </script>
 
@@ -25,10 +26,14 @@ img{
   width: 200px;
   height: 100px;
   margin-top: 30px;
-  position: fixed;
+  /*position: fixed;*/
   left: 500px;
   top: 0;
   right: 0;
+}
+#logoLargo{
+  width: 580px;
+  margin-right: 360px;
 }
 .home{
   background-image: url("../assets/coche.jpg");
@@ -36,9 +41,9 @@ img{
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
-  width: 1600px; 
-  height: 800px;
+  width: 1200px;
+  height: 600px;
   margin-top: 150px;
-  
+
 }
 </style>

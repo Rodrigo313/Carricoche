@@ -9,7 +9,7 @@
         <h4>Haz click en el id para comenzar a modificar el anuncio</h4>
 
         <ul v-for="(anuncios) in anuncio" :key="anuncios">
-            <li class="fantasia" v-if="this.informacionDelete == anuncios.id_anuncio" @click="informacionAnuncios(anuncios.coche, anuncios.id_provincia, anuncios.telefono, anuncios.correo_electronico, anuncios.precio, anuncios.segunda_mano, anuncios.id_anuncio)">{{anuncios.id_anuncio}}</li>
+            <li class="info" v-if="this.informacionDelete == anuncios.id_anuncio" @click="informacionAnuncios(anuncios.coche, anuncios.id_provincia, anuncios.telefono, anuncios.correo_electronico, anuncios.precio, anuncios.segunda_mano, anuncios.id_anuncio)">{{anuncios.id_anuncio}}</li>
         </ul>
         <br>
         <div v-if="ocultar != ''">
@@ -88,8 +88,8 @@ export default{
       })
    },
    methods: {
-        informacionAnuncios: function(animal, provincia, telefono, correo_electronico, precio, segunda_mano, id_anuncio){
-            this.ocultar = animal;
+        informacionAnuncios: function(coche, provincia, telefono, correo_electronico, precio, segunda_mano, id_anuncio){
+            this.ocultar = coche;
             this.ubicacion = provincia;
             this.numero = telefono;
             this.equipo = correo_electronico;
@@ -105,7 +105,7 @@ export default{
 </script>
 
 <style>
-.fantasia{
+.info{
     list-style: none;
     font-size: x-large;
 }

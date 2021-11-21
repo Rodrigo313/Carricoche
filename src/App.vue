@@ -1,19 +1,29 @@
 <template>
   <div id="menu">
-    
+
     <router-link to="/">Inicio</router-link> |
-    
+
     <router-link to="/anuncios">Anuncios</router-link> |
-    
+
     <router-link to="/insertar">Insertar</router-link> |
-    
+
     <router-link to="/modificar">Modificar</router-link> |
-    
+
     <router-link to="/eliminar">Eliminar</router-link>
-    
+
   </div>
   <router-view/>
+  <Cookies/>
 </template>
+
+<script>
+import Cookies from './components/Cookies.vue'
+export default {
+    components:{
+      Cookies
+    }
+}
+</script>
 
 <style>
 #app {
@@ -25,7 +35,7 @@
 }
 #menu {
   padding: 40px;
-  margin-top: 35px;
+  margin-top: 130px;
   position: fixed;
   left: 670px;
   top: 0;
@@ -41,14 +51,14 @@
 #menu a.router-link-exact-active {
   color: white;
   text-shadow:
-		0 0 5px rgba(0,178,255,1),
-		0 0 10px rgba(0,178,255,1),
-		0 0 20px rgba(0,178,255,1),
-		0 0 40px rgba(38,104,127,1),
-		0 0 80px rgba(38,104,127,1),
-		0 0 90px rgba(38,104,127,1),
-		0 0 100px rgba(38,104,127,1),
-		0 0 140px rgba(38,104,127,1),
-		0 0 180px rgba(38,104,127,1);
+		0 0 5px rgb(255, 0, 0),
+		0 0 10px rgb(255, 0, 0),
+		0 0 20px rgb(255, 0, 0),
+		0 0 40px rgb(127, 38, 38),
+		0 0 80px rgb(127, 38, 38),
+		0 0 90px rgb(127, 38, 38),
+		0 0 100px rgb(127, 38, 38),
+		0 0 140px rgb(127, 38, 38),
+		0 0 180px rgb(127, 38, 38);
 }
 </style>
