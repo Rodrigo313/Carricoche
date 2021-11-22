@@ -12,7 +12,7 @@
                     <th scope="col">Provincia</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Correo Electrónico</th>
-                    <th scope="col">Precio en €</th>
+                    <th scope="col">Precio</th>
                     <th scope="col">Segunda mano</th>
                 </tr>
             </thead>

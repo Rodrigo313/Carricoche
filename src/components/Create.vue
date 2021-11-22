@@ -34,7 +34,6 @@
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Precio</span>
               <input type="text" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5">
-              <span class="input-group-text" id="basic-addon2">€</span>
           </div>
           <div class="error" v-if="var5.required">Campo obligatorio.</div>
 
