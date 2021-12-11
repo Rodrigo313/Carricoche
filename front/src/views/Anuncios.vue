@@ -6,11 +6,10 @@
     <div class="container">
       <div class="row">
         <div class="col"><img alt="Logo coche" src="../assets/logo-coche.jpg"></div>
-        <div class="col"><img alt="Logo coche 2" id="logoLargo" src="../assets/logo-coche2.jpg"></div>
         <div class="anuncios">
           <h1>Listado anuncios</h1>
           <br>
-          <Listar/>
+          <List/>
         </div>
       </div>
     </div>
@@ -18,11 +17,11 @@
 </template>
 
 <script>
-import Listar from '@/components/List.vue'
+import List from '@/components/List.vue'
 export default {
   name: 'Anuncios',
   components: {
-    Listar
+    List
   }
 }
 </script>
@@ -33,15 +32,12 @@ img{
   width: 200px;
   height: 100px;
   margin-top: 30px;
-  /*position: fixed;*/
+  position: fixed;
   left: 500px;
   top: 0;
   right: 0;
 }
-#logoLargo{
-  width: 580px;
-  margin-right: 360px;
-}
+
 .anuncios{
   width: 1600px;
   height: auto;

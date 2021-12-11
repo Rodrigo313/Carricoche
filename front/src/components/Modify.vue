@@ -5,16 +5,9 @@
 
     <body>
 
-        <h2>Id del anuncio seleccionado</h2>
-        <h4>Haz click en el id para comenzar a modificar el anuncio</h4>
-
         <ul v-for="(anuncios) in anuncio" :key="anuncios">
-            <li class="info" v-if="this.informacionCommercial == anuncios.id_anuncio" @click="informacionAnuncios(anuncios.coche, anuncios.id_provincia, anuncios.telefono, anuncios.correo_electronico, anuncios.precio, anuncios.segunda_mano, anuncios.id_anuncio)">{{anuncios.id_anuncio}}</li>
-        </ul>
-        <br>
-        <div v-if="ocultar != ''">
-
-            <h2>Datos a modificar</h2>
+            <div v-if="this.informacionCommercial == anuncios.id_anuncio">
+                        <h2>Datos a modificar</h2>
             <h4>Debe rellenar todos los campos</h4>
 
             <span v-for="(anuncios) in anuncio" :key="anuncios">
@@ -72,9 +65,9 @@
                     </div>
                 </div>
             </span>
-
-        </div>
-
+            </div>
+        </ul>
+        <br>
     </body>
 </template>
 

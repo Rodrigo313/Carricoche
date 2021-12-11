@@ -13,7 +13,7 @@
 
   </div>
   <router-view/>
-  <Cookies/>
+  <Cookies position="bottom"/>
 </template>
 
 <script>
@@ -32,10 +32,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 #menu {
   padding: 40px;
-  margin-top: 130px;
+  margin-top: 35px;
   position: fixed;
   left: 670px;
   top: 0;

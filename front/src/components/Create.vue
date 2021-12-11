@@ -41,11 +41,11 @@
               <span class="input-group-text" id="basic-addon2">Segunda mano</span>
 
               <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault" value="si" aria-describedby="basic-addon2" v-model="var6">
+                <input type="radio" class="form-check-input" name="flexRadioDefault" value="si" aria-describedby="basic-addon2">
                 <label class="form-check-label" for="si">Si</label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault2" value="no" aria-describedby="basic-addon2" v-model="var6">
+                <input type="radio" class="form-check-input" name="flexRadioDefault2" value="no" aria-describedby="basic-addon2">
                 <label class="form-check-label" for="no">No</label>
               </div>
           </div>
