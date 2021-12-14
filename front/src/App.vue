@@ -19,9 +19,9 @@
 <script>
 import Cookies from './components/Cookies.vue'
 export default {
-    components:{
-      Cookies
-    }
+      components:{
+        Cookies
+      }
 }
 </script>
 

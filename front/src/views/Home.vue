@@ -5,7 +5,8 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col"><img alt="Logo coche" src="../assets/logo-coche.jpg"></div>
+        <!--<div class="col"><img alt="Logo coche" src="../assets/logo-coche.jpg"></div>-->
+        <carousel :slides="slides"></carousel>
         <div class="home">
 
         </div>
@@ -15,9 +16,19 @@
 </template>
 
 <script>
+import Carousel from "./components/Carousel.vue";
 export default {
-
-}
+  components: {Carousel},
+      data: () => ({
+        slides: [
+          "https://i.picsum.photos/id/1071/1400/700.jpg?hmac=rPo94Qr1Ffb657k6R7c9Zmfgs4wc4c1mNFz7ND23KnQ",
+          "https://i.picsum.photos/id/111/1400/700.jpg?hmac=leq8lj40D6cqFq5M_NLXkMYtV-30TtOOnzklhjPaAAQ",
+          "https://i.picsum.photos/id/183/1400/700.jpg?hmac=908ZBWKqGdL9kio38tCq2ViwMm3DjLUtkjU_6SWNa9k",
+          "https://i.picsum.photos/id/514/1400/700.jpg?hmac=OmmsoWSTgOdsCjg94wlT1VqyJPSPBypTtr-wxfTeLLI",
+          "https://i.picsum.photos/id/133/1400/700.jpg?hmac=0X5o8bHUICkOIvZHtykCRL50Bjn1N8w1AvkenF7n93E"
+        ],
+      }),
+    }
 </script>
 
 <style scoped>

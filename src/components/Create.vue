@@ -1,19 +1,11 @@
 <template>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    </head>
-
-    <body>
-
-        <ul v-for="(anuncios) in anuncio" :key="anuncios">
-            <div v-if="this.informacionCommercial == anuncios.id_anuncio">
-                        <h2>Datos a modificar</h2>
-            <h4>Debe rellenar todos los campos</h4>
-
-            <span v-for="(anuncios) in anuncio" :key="anuncios">
-
-                <div v-if="this.informacionCommercial == anuncios.id_anuncio">
-                    <div class="input-group mb-3">
+  <div class="create">
+      <head>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      </head>
+      <body>
+        <form>
+          <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Coche</span>
               <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1">
           </div>
@@ -59,86 +51,81 @@
           </div>
           <div class="error" v-if="var6.required">Campo obligatorio.</div>
 
-
-                    <div class="input-group mb-3">
-                        <button type="submit" class="btn btn-primary mb-3" @click="enviar">Modificar</button>
-                    </div>
-                </div>
-            </span>
-            </div>
-        </ul>
-        <br>
-    </body>
+          <div class="input-group mb-3">
+              <button type="submit" class="btn btn-primary mb-3" @click="enviar">Crear</button>
+          </div>
+        </form>
+      </body>
+  </div>
 </template>
 
 <script>
-import axios from "axios";
-export default{
-   props:[
-       "informacionCommercial"
-   ],
-   data(){
-       return{
-           anuncio: [],
-           provincias: [],
-           ocultar: "",
-           ubicacion: "",
-           numero: "",
-           correo: "",
-           dinero: "",
-           segunda: "",
-           id: "",
-           var1: '',
-           var2: '',
-           var3: '',
-           var4: '',
-           var5: '',
-           var6: ''
-       }
-   },
-   created(){
-        axios.get("http://localhost:8080/carricoche/v1/anuncios").then((response) => {
-            this.anuncio = response.data
-        }),
-        axios.get("http://localhost:8080/carricoche/v1/provincias").then((response) => {
-            this.provincias = response.data
+import axios from 'axios';
+import {required} from 'vuelidate/lib/validators';
+export default {
+
+  data(){
+      return{
+          provincias: [],
+          var1: '',
+          var2: '',
+          var3: '',
+          var4: '',
+          var5: '',
+          var6: true
+      }
+  },
+  methods:{
+    obtenerProvincias(){
+       axios.get("http://localhost:8080/carricoche/v1/provincias").then((response) => {
+          this.provincias = response.data
       })
-   },
-   methods: {
-        informacionAnuncios: function(coche, provincia, telefono, correo_electronico, precio, segunda_mano, id_anuncio){
-            this.ocultar = coche;
-            this.ubicacion = provincia;
-            this.numero = telefono;
-            this.equipo = correo_electronico;
-            this.dinero = precio;
-            this.segunda = segunda_mano;
-            this.id = id_anuncio;
-        },
-        enviar(){
-            let post = {
-                id_anuncio: this.id,
-                coche: this.var1,
-                id_provincia: this.var2,
-                telefono: this.var3,
-                correo_electronico: this.var4,
-                precio: this.var5,
-                segunda_mano: this.var6
-            };
-            axios.put('http://localhost:8080/carricoche/v1/anuncios/'+ this.id, post)
-        }
-   }
+    },
+    enviar(){
+        let post = {
+            coche: this.var1,
+            id_provincia: this.var2,
+            telefono: this.var3,
+            correo_electronico: this.var4,
+            precio: this.var5,
+            segunda_mano: this.var6
+        };
+        axios.post('http://localhost:8080/carricoche/v1/anuncios', post)
+        .then((result) => {
+            console.log(result)
+        })
+    }
+  },
+  validations: {
+      var1:{
+          required
+      },
+      var2:{
+          required
+      },
+      var3:{
+          required
+      },
+      var4:{
+          required
+      },
+      var5:{
+          required
+      },
+      var6:{
+          required
+      }
+  },
+  created(){
+      this.obtenerProvincias();
+  }
 }
 </script>
-
-<style>
+<style scoped>
 input[name="flexRadioDefault"] {
   margin-left: 10px;
 }
 input[name="flexRadioDefault2"] {
   margin-left: 50px;
-}
-.info{
-    list-style: none;
-    font-size: x-large;
 }
 </style>
