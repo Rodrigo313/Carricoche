@@ -28,11 +28,11 @@ export default {
 
 <style scoped>
 img{
-  width: 200px;
+  width: 100px;
   height: 100px;
   margin-top: 30px;
   position: fixed;
-  left: 500px;
+  left: 600px;
   top: 0;
   right: 0;
 }

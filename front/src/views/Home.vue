@@ -1,6 +1,6 @@
 <template>
   <head>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
   </head>
   <body>
     <div class="container">
@@ -21,11 +21,11 @@ export default {
   components: {Carousel},
       data: () => ({
         slides: [
-          "https://picsum.photos/id/237/200/300",
-          "https://picsum.photos/id/238/200/300",
-          "https://picsum.photos/id/239/200/300",
-          "https://picsum.photos/id/240/200/300",
-          "https://picsum.photos/id/241/200/300"
+          "https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019_960_720.jpg",
+          "https://cdn.pixabay.com/photo/2016/02/13/13/11/oldtimer-1197800_960_720.jpg",
+          "https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_960_720.jpg",
+          "https://cdn.pixabay.com/photo/2016/11/21/18/07/automotive-1846910_960_720.jpg",
+          "https://cdn.pixabay.com/photo/2016/05/06/16/32/car-1376190_960_720.jpg"
         ],
       }),
     };
@@ -34,11 +34,11 @@ export default {
 
 <style scoped>
 #logo{
-  width: 200px;
+  width: 100px;
   height: 100px;
   margin-top: 30px;
   position: fixed;
-  left: 500px;
+  left: 650px;
   top: 0;
   right: 0;
 }
