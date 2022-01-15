@@ -1,4 +1,5 @@
 <template>
+<div class="col"><img id="logo" alt="Logo coche" src="./assets/logo-coche.jpg"></div>
   <div id="menu">
 
     <router-link to="/">Inicio</router-link> |
@@ -10,7 +11,6 @@
     <router-link to="/modificar">Modificar</router-link> |
 
     <router-link to="/eliminar">Eliminar</router-link>
-
   </div>
   <router-view/>
   <Cookies position="bottom"/>
@@ -62,5 +62,14 @@ export default {
 		0 0 100px rgb(127, 38, 38),
 		0 0 140px rgb(127, 38, 38),
 		0 0 180px rgb(127, 38, 38);
+}
+#logo{
+  width: 100px;
+  height: 100px;
+  margin-top: 30px;
+  position: fixed;
+  left: 550px;
+  top: 0;
+  right: 0;
 }
 </style>

@@ -6,8 +6,6 @@
   <div class="container">
     <div class="row">
 
-        <div class="col"><img alt="Logo coche" src="../assets/logo-coche.jpg"></div>
-
 
       <div class="anuncios">
         <h1>Modificar anuncios</h1>
@@ -95,15 +93,6 @@ export default {
 
 
 <style scoped>
-img{
-  width: 100px;
-  height: 100px;
-  margin-top: 30px;
-  position: fixed;
-  left: 600px;
-  top: 0;
-  right: 0;
-}
 .anuncios{
   width: 1600px;
   height: auto;

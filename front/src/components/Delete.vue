@@ -68,7 +68,7 @@ export default{
            numero: "",
            correo: "",
            dinero: "",
-           segunda: "",
+           segunda: false,
            id: ""
        }
    },

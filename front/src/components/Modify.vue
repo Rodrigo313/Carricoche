@@ -9,7 +9,6 @@
             <div v-if="this.informacionCommercial == anuncios.id_anuncio">
                         <h2>Datos a modificar</h2>
             <h4>Debe rellenar todos los campos</h4>
-
             <span v-for="(anuncios) in anuncio" :key="anuncios">
 
                 <div v-if="this.informacionCommercial == anuncios.id_anuncio">
@@ -49,12 +48,7 @@
               <span class="input-group-text" id="basic-addon2">Segunda mano</span>
 
               <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault" value="si" aria-describedby="basic-addon2">
-                <label class="form-check-label" for="si">Si</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault2" value="no" aria-describedby="basic-addon2">
-                <label class="form-check-label" for="no">No</label>
+                <input id="segunda" type="checkbox" name="segunda">
               </div>
           </div>
           <div class="error" v-if="var6.required">Campo obligatorio.</div>
@@ -86,14 +80,14 @@ export default{
            numero: "",
            correo: "",
            dinero: "",
-           segunda: "",
+           segunda: false,
            id: "",
            var1: '',
            var2: '',
            var3: '',
            var4: '',
            var5: '',
-           var6: ''
+           var6: false
        }
    },
    created(){
@@ -140,5 +134,9 @@ input[name="flexRadioDefault2"] {
 .info{
     list-style: none;
     font-size: x-large;
+}
+#segunda{
+    width: 45px;
+    height: 45px;
 }
 </style>

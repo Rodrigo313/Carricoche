@@ -5,7 +5,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col"><img id="logo" alt="Logo coche" src="../assets/logo-coche.jpg"></div>
+
 
         <div class="home">
           <carousel :slides="slides"></carousel>
@@ -33,15 +33,6 @@ export default {
 
 
 <style scoped>
-#logo{
-  width: 100px;
-  height: 100px;
-  margin-top: 30px;
-  position: fixed;
-  left: 650px;
-  top: 0;
-  right: 0;
-}
 .home{
   /*background-repeat: no-repeat;
   background-attachment: scroll;

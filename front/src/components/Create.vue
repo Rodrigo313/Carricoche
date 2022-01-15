@@ -41,12 +41,7 @@
               <span class="input-group-text" id="basic-addon2">Segunda mano</span>
 
               <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault" value="si" aria-describedby="basic-addon2">
-                <label class="form-check-label" for="si">Si</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="flexRadioDefault2" value="no" aria-describedby="basic-addon2">
-                <label class="form-check-label" for="no">No</label>
+                <input id="segunda" type="checkbox" name="segunda">
               </div>
           </div>
           <div class="error" v-if="var6.required">Campo obligatorio.</div>
@@ -72,7 +67,7 @@ export default {
           var3: '',
           var4: '',
           var5: '',
-          var6: ''
+          var6: false
       }
   },
   methods:{
@@ -127,5 +122,9 @@ input[name="flexRadioDefault"] {
 }
 input[name="flexRadioDefault2"] {
   margin-left: 50px;
+}
+#segunda{
+    width: 45px;
+    height: 45px;
 }
 </style>
