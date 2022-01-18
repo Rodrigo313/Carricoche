@@ -38,7 +38,7 @@
                     <td>{{anuncios.telefono}}</td>
                     <td>{{anuncios.correo_electronico}}</td>
                     <td>{{anuncios.precio}}</td>
-                    <td>{{anuncios.segunda_mano}}</td>
+                    <td>{{anuncios.segundaTexto}}</td>
                 </tr>
             </tbody>
         </table>
@@ -74,7 +74,14 @@ export default {
       },
       obtenerAnuncios(){
           axios.get("http://localhost:8080/carricoche/v1/anuncios").then((response) => {
-              this.anuncio = response.data
+              this.anuncio = response.data;
+              this.anuncio.forEach(element => {
+                if(element.segunda_mano){
+                  element.segundaTexto = "Si"
+                }else{
+                  element.segundaTexto = "No"
+                }
+              })
           })
       },
       obtenerCommercial: function(id){

@@ -5,7 +5,7 @@
 
     <body>
 
-        <ul v-for="(anuncios) in anuncio" :key="anuncios">
+        <form v-for="(anuncios) in anuncio" :key="anuncios">
             <div v-if="this.informacionCommercial == anuncios.id_anuncio">
                         <h2>Datos a modificar</h2>
             <h4>Debe rellenar todos los campos</h4>
@@ -60,7 +60,7 @@
                 </div>
             </span>
             </div>
-        </ul>
+        </form>
         <br>
     </body>
 </template>
@@ -110,7 +110,7 @@ export default{
         },
         enviar(){
             let post = {
-                id_anuncio: this.id,
+                id_anuncio: this.informacionCommercial,
                 coche: this.var1,
                 id_provincia: this.var2,
                 telefono: this.var3,
@@ -118,7 +118,8 @@ export default{
                 precio: this.var5,
                 segunda_mano: this.var6
             };
-            axios.put('http://localhost:8080/carricoche/v1/anuncios/'+ this.id, post)
+            axios.put('http://localhost:8080/carricoche/v1/anuncios/'+ this.informacionCommercial, post);
+            location.reload();
         }
    }
 }

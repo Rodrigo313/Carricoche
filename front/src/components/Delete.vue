@@ -85,13 +85,13 @@ export default{
             this.ocultar = coche;
             this.ubicacion = provincia;
             this.numero = telefono;
-            this.equipo = correo_electronico;
+            this.correo = correo_electronico;
             this.dinero = precio;
             this.segunda = segunda_mano;
             this.id = id_anuncio;
         },
         borrar(){
-            axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.id)
+            axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionDelete);
         }
    }
 }

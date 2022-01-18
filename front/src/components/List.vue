@@ -5,7 +5,7 @@
       </head>
     <body>
 
-        <ul>
+        <form>
             <div>
                         <h2>Comprar coche</h2>
             <h4>Debe rellenar todos los campos</h4>
@@ -56,12 +56,12 @@
 
 
                     <div class="input-group mb-3">
-                        <button type="submit" class="btn btn-primary mb-3" @click="borrar()">Comprar</button>
+                        <button type="submit" class="btn btn-primary mb-3" @click="borrar">Comprar</button>
                     </div>
                 </div>
             </span>
             </div>
-        </ul>
+        </form>
         <br>
     </body>
   </div>
@@ -103,7 +103,8 @@ export default{
             this.id = id_anuncio;
         },
         borrar(){
-            axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.id)
+            axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionCompra);
+            location.reload();
         }
    }
 }

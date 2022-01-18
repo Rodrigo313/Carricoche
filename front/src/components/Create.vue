@@ -41,7 +41,7 @@
               <span class="input-group-text" id="basic-addon2">Segunda mano</span>
 
               <div class="form-check">
-                <input id="segunda" type="checkbox" name="segunda">
+                <input id="segunda" type="checkbox" name="segunda" @click="cambio()">
               </div>
           </div>
           <div class="error" v-if="var6.required">Campo obligatorio.</div>
@@ -89,6 +89,9 @@ export default {
         .then((result) => {
             console.log(result)
         })
+    },
+    cambio(){
+        this.var6 = !this.var6;
     }
   },
   validations: {
