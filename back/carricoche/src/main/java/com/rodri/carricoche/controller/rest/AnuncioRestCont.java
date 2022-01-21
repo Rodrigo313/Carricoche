@@ -3,6 +3,8 @@
  */
 package com.rodri.carricoche.controller.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rodri.carricoche.dtos.AnuncioDTO;
 import com.rodri.carricoche.entities.AnuncioEntity;
 import com.rodri.carricoche.entities.ProvinciaEntity;
 import com.rodri.carricoche.repositories.AnuncioRepository;
@@ -48,6 +51,11 @@ public class AnuncioRestCont {
 	public Iterable<AnuncioEntity> listarAnuncios(){
 		return anuncioRepository.findAll();
 	}
+	
+	@GetMapping(value = "/anuncios/{id_anuncio}")
+	public List<AnuncioDTO> listarAnuncioPorId(@PathVariable(value="id_anuncio",required=false)Integer id_anuncio){
+        return anuncioRepository.buscaAnuncioPorId(id_anuncio);
+    }
 	
 	@GetMapping(value = "/provincias")
 	public Iterable<ProvinciaEntity> listarProvincias(){
