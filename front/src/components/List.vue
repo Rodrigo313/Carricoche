@@ -45,15 +45,18 @@
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Familia numerosa(10%)</span>
               <div class="form-check">
-                <input id="segunda" type="checkbox" name="descuento">
+                <input id="descuento" type="radio" :value="familia_numerosa" v-model="descuento" @click="calcularDescuento">
               </div>
 
               <span class="input-group-text" id="basic-addon2">Mayor de 55 años(15%)</span>
               <div class="form-check">
-                <input id="segunda" type="checkbox" name="descuento">
+                <input id="descuento" type="radio" :value="viejo" v-model="descuento" @click="calcularDescuento">
               </div>
           </div>
-
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon2">El precio final es de</span>
+              <input type="text" class="form-control" aria-label="precio_final" aria-describedby="basic-addon2" v-model="precio_final">
+          </div>
 
                     <div class="input-group mb-3">
                         <button type="submit" class="btn btn-primary mb-3" @click="borrar">Comprar</button>
@@ -80,7 +83,10 @@ export default{
            ubicacion: "",
            numero: "",
            correo: "",
-           descuento: false,
+           descuento: "",
+           familia_numerosa: false,
+           precio_final: 0,
+           coche: {},
            id: ""
        }
    },
@@ -102,6 +108,19 @@ export default{
             this.descuento = descuento;
             this.id = id_anuncio;
         },
+        calcularDescuento(){
+            /*this.coche = {
+                        descripcion: this.anuncio.coche,
+                        precio: this.anuncio.precio,
+                        segunda_mano: this.anuncio.segunda_mano,
+                        familia_numerosa: this.descuento,
+                        descuento: this.descuento
+                        }*/
+            console.log(this.descuento);
+            axios.post('http://localhost:8080/carricoche/v1/descuento/aplicar', coche).then((response) => {
+            this.precio_final = response.data
+      })
+        },
         borrar(){
             axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionCompra);
             location.reload();
@@ -113,5 +132,10 @@ export default{
 <style>
 li {
     list-style: none;
+}
+#descuento{
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
 }
 </style>
