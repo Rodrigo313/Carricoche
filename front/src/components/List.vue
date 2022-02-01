@@ -45,12 +45,12 @@
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Familia numerosa(10%)</span>
               <div class="form-check">
-                <input id="descuento" type="radio" :value="familia_numerosa" v-model="descuento" @click="calcularDescuento">
+                <input id="familia_numerosa" type="checkbox" value="familia_numerosa" v-model="descuento" @click="calcularDescuento">
               </div>
 
               <span class="input-group-text" id="basic-addon2">Mayor de 55 años(15%)</span>
               <div class="form-check">
-                <input id="descuento" type="radio" :value="viejo" v-model="descuento" @click="calcularDescuento">
+                <input id="viejo" type="checkbox" value="viejo" v-model="descuento" @click="calcularDescuento">
               </div>
           </div>
           <div class="input-group mb-3">
@@ -84,7 +84,7 @@ export default{
            numero: "",
            correo: "",
            descuento: "",
-           familia_numerosa: false,
+           familia_numerosa: "",
            precio_final: 0,
            coche: {},
            id: ""
@@ -109,15 +109,15 @@ export default{
             this.id = id_anuncio;
         },
         calcularDescuento(){
-            /*this.coche = {
+            this.coche = {
                         descripcion: this.anuncio.coche,
                         precio: this.anuncio.precio,
                         segunda_mano: this.anuncio.segunda_mano,
                         familia_numerosa: this.descuento,
                         descuento: this.descuento
-                        }*/
-            console.log(this.descuento);
-            axios.post('http://localhost:8080/carricoche/v1/descuento/aplicar', coche).then((response) => {
+                        }
+            console.log(this.coche);
+            axios.post('http://localhost:8080/carricoche/descuento/aplicar', this.coche).then((response) => {
             this.precio_final = response.data
       })
         },
@@ -133,7 +133,12 @@ export default{
 li {
     list-style: none;
 }
-#descuento{
+#familia_numerosa{
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+#viejo{
     width: 45px;
     height: 45px;
     margin-right: 10px;
