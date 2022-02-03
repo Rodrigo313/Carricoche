@@ -45,12 +45,13 @@
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Familia numerosa(10%)</span>
               <div class="form-check">
-                <input id="familia_numerosa" type="checkbox" value="familia_numerosa" v-model="descuento" @click="calcularDescuento">
+                <input id="familia_numerosa" type="checkbox"  v-model="familia_numerosa" @click="calcularDescuento()">
+                <span>{{familia_numerosa}}</span>
               </div>
 
               <span class="input-group-text" id="basic-addon2">Mayor de 55 años(15%)</span>
               <div class="form-check">
-                <input id="viejo" type="checkbox" value="viejo" v-model="descuento" @click="calcularDescuento">
+                <input id="viejo" type="checkbox"  v-model="rango_edad" @click="calcularDescuento()">
               </div>
           </div>
           <div class="input-group mb-3">
@@ -83,8 +84,8 @@ export default{
            ubicacion: "",
            numero: "",
            correo: "",
-           descuento: "",
-           familia_numerosa: "",
+           rango_edad: false,
+           familia_numerosa: false,
            precio_final: 0,
            coche: {},
            id: ""
@@ -99,24 +100,15 @@ export default{
       })
    },
    methods: {
-        datosCompra: function(nombre, apellidos, direccion, telefono, correo_electronico, descuento, id_anuncio){
-            this.nombre = nombre;
-            this.apellidos = apellidos;
-            this.ubicacion = direccion;
-            this.numero = telefono;
-            this.equipo = correo_electronico;
-            this.descuento = descuento;
-            this.id = id_anuncio;
-        },
         calcularDescuento(){
             this.coche = {
                         descripcion: this.anuncio.coche,
                         precio: this.anuncio.precio,
                         segunda_mano: this.anuncio.segunda_mano,
-                        familia_numerosa: this.descuento,
-                        descuento: this.descuento
+                        familia_numerosa: this.familia_numerosa,
+                        rango_edad: this.rango_edad
                         }
-            console.log(this.coche);
+            console.log(this.familia_numerosa);
             axios.post('http://localhost:8080/carricoche/descuento/aplicar', this.coche).then((response) => {
             this.precio_final = response.data
       })
