@@ -5,6 +5,7 @@
       </head>
     <body>
 
+        <div id="formulario">
         <form>
             <div>
                         <h2>Comprar coche</h2>
@@ -62,10 +63,14 @@
                     <div class="input-group mb-3">
                         <button type="submit" class="btn btn-primary mb-3" @click="borrar">Comprar</button>
                     </div>
+                    <div class="input-group mb-3">
+                    <button id="cancelar" type="submit" class="btn btn-danger" @click="cerrarFormulario">Cancelar</button>
+                    </div>
                 </div>
             </span>
             </div>
         </form>
+        </div>
         <br>
     </body>
   </div>
@@ -112,6 +117,9 @@ export default{
             axios.post('http://localhost:8080/carricoche/descuento/aplicar', this.coche).then((response) => {
             this.precio_final = response.data
       })
+        },
+        cerrarFormulario(){
+            document.getElementById("formulario").disabled = true;
         },
         borrar(){
             axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionCompra);
