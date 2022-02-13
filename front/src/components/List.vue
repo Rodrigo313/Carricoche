@@ -41,18 +41,17 @@
               <input type="text" class="form-control" aria-label="Dirección" aria-describedby="basic-addon2">
           </div>
 
-          <h4>Opciones de descuento</h4>
+          <h4>Opciones de descuento(Elija una opción)</h4>
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Familia numerosa(10%)</span>
               <div class="form-check">
-                <input id="familia_numerosa" type="checkbox"  v-model="familia_numerosa" @click="calcularDescuento()">
-                <span>{{familia_numerosa}}</span>
+                <input id="familia_numerosa" type="checkbox"  v-model="familia_numerosa" @change="check($event)">
               </div>
 
               <span class="input-group-text" id="basic-addon2">Mayor de 55 años(15%)</span>
               <div class="form-check">
-                <input id="viejo" type="checkbox"  v-model="rango_edad" @click="calcularDescuento()">
+                <input id="viejo" type="checkbox"  v-model="rango_edad" @change="check($event)">
               </div>
           </div>
           <div class="input-group mb-3">
@@ -113,7 +112,6 @@ export default{
                         familia_numerosa: this.familia_numerosa,
                         rango_edad: this.rango_edad
                         }
-            console.log(this.familia_numerosa);
             axios.post('http://localhost:8080/carricoche/descuento/aplicar', this.coche).then((response) => {
             this.precio_final = response.data
       })
@@ -124,8 +122,11 @@ export default{
         borrar(){
             axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionCompra);
             location.reload();
+        },
+        check: function(e) {
+            this.calcularDescuento();
         }
-   }
+   },
 }
 </script>
 
