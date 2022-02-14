@@ -14,35 +14,30 @@
                 <div v-if="this.informacionCommercial == anuncios.id_anuncio">
                     <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Coche</span>
-              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1">
+              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" required>
           </div>
-          <div class="error" v-if="var1.required">Campo obligatorio.</div>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Provincia</span>
-              <select class="form-select" aria-label="Default select example" v-model="var2">
+              <select class="form-select" aria-label="Default select example" v-model="var2" required>
                   <option v-for="(provincia, index) in provincias" :key="index" v-bind:value="provincia.id_provincia">{{provincia.nombre}}</option>
               </select>
           </div>
-          <div class="error" v-if="var2.required">Campo obligatorio.</div>
           <br>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="text" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3">
+              <input type="number" max="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" required>
           </div>
-          <div class="error" v-if="var3.required">Campo obligatorio.</div>
 
           <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3" v-model="var4">
+              <input type="email" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3" v-model="var4" required>
           </div>
-          <div class="error" v-if="var4.required">Campo obligatorio.</div>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Precio</span>
-              <input type="text" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5">
+              <input type="number" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5" required>
           </div>
-          <div class="error" v-if="var5.required">Campo obligatorio.</div>
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Segunda mano</span>

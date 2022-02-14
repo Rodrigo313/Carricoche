@@ -28,12 +28,12 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="text" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2">
+              <input type="number" max="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2">
           </div>
 
 
           <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3">
+              <input type="email" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3">
           </div>
 
           <div class="input-group mb-3">
@@ -120,8 +120,13 @@ export default{
             document.getElementById("formulario").disabled = true;
         },
         borrar(){
-            axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionCompra);
-            location.reload();
+            var mensaje = confirm("¿Desea comprar el coche?");
+            if(mensaje == true){
+                axios.delete('http://localhost:8080/carricoche/v1/anuncios/'+this.informacionCompra);
+                location.reload();
+            }else{
+                document.getElementById("formulario").disabled = true;
+            }
         },
         check: function(e) {
             this.calcularDescuento();
