@@ -29,7 +29,6 @@ export default {
 .anuncios{
   width: 1600px;
   height: auto;
-  margin-top: 150px;
   border: 1px solid black;
 }
 </style>

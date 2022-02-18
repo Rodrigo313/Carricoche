@@ -74,6 +74,8 @@ export default {
         grid-gap: 12px;
         padding: 10px;
         background: #f2f2f2;
+        bottom: 0;
+        z-index: 100;
     }
 
     .contenido{

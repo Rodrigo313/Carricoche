@@ -5,8 +5,6 @@
   <body>
     <div class="container">
       <div class="row">
-
-
         <div class="home">
           <carousel :slides="slides"></carousel>
         </div>
@@ -34,11 +32,6 @@ export default {
 
 <style scoped>
 .home{
-  /*background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;*/
-  margin-top: 150px;
-
+  margin-bottom: 80px;
 }
 </style>

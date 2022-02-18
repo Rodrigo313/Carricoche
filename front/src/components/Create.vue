@@ -20,7 +20,7 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="number" max="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" required>
+              <input type="number" maxlength="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" required>
           </div>
 
           <div class="input-group mb-3">

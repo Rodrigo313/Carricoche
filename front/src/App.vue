@@ -38,7 +38,8 @@ export default {
 #menu {
   padding: 40px;
   margin-top: 35px;
-  position: fixed;
+  /*position: fixed;*/
+  margin: 0 auto;
   left: 670px;
   top: 0;
   right: 0;
@@ -67,7 +68,7 @@ export default {
   width: 100px;
   height: 100px;
   margin-top: 30px;
-  position: fixed;
+  /*position: fixed;*/
   left: 550px;
   top: 0;
   right: 0;
