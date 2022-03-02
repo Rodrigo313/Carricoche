@@ -10,18 +10,23 @@
 
     <router-link to="/modificar">Modificar</router-link> |
 
+    <router-link to="/nuestrasRedes">Nuestras Redes</router-link> |
+
     <router-link to="/eliminar">Eliminar</router-link>
   </div>
   <router-view/>
   <Cookies position="bottom"/>
+  <adsense></adsense>
 </template>
 
 <script>
 import Cookies from './components/Cookies.vue'
+import Adsense from './components/Adsense.vue'
 
 export default {
       components:{
-        Cookies
+        Cookies,
+        Adsense
       }
 }
 </script>

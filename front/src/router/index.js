@@ -23,6 +23,11 @@ const routes = [
     component: () => import('../views/Modificar.vue')
   },
   {
+    path: '/nuestrasRedes',
+    name: 'NuestrasRedes',
+    component: () => import('../views/NuestrasRedes.vue')
+  },
+  {
     path: '/eliminar',
     name: 'Eliminar',
     component: () => import('../views/Eliminar.vue')
