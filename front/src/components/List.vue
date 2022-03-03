@@ -46,12 +46,12 @@
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Familia numerosa(10%)</span>
               <div class="form-check">
-                <input id="familia_numerosa" type="checkbox" name="descuento"  v-model="familia_numerosa" @change="check($event)">
+                <input id="familia_numerosa" type="checkbox"  v-model="familia_numerosa" @change="check($event)">
               </div>
 
               <span class="input-group-text" id="basic-addon2">Mayor de 55 años(15%)</span>
               <div class="form-check">
-                <input id="viejo" type="checkbox" name="descuento" v-model="rango_edad" @change="check($event)">
+                <input id="viejo" type="checkbox" v-model="rango_edad" @change="check($event)">
               </div>
           </div>
           <div class="input-group mb-3">
@@ -128,8 +128,18 @@ export default{
                 document.getElementById("formulario").disabled = true;
             }
         },
+        unaOpcion(){
+            var famNum = document.getElementById("familia_numerosa");
+            var viejo = document.getElementById("viejo");
+            if(famNum.disabled){
+                famNum.disabled = false;
+            }else{
+                famNum.disabled = true;
+            }
+        },
         check: function(e) {
             this.calcularDescuento();
+            this.unaOpcion();
         }
    },
 }

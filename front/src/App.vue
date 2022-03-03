@@ -16,17 +16,17 @@
   </div>
   <router-view/>
   <Cookies position="bottom"/>
-  <adsense></adsense>
+  <!--<adsense></adsense>-->
 </template>
 
 <script>
 import Cookies from './components/Cookies.vue'
-import Adsense from './components/Adsense.vue'
+//import Adsense from './components/Adsense.vue'
 
 export default {
       components:{
         Cookies,
-        Adsense
+        //Adsense
       }
 }
 </script>

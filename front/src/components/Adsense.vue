@@ -1,4 +1,4 @@
-<template>
+<!--<template>
     <InFeedAdsense
         data-ad-layout-key="adSLayout"
         data-ad-client="adClient"
@@ -30,4 +30,4 @@ export default {
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
 }
-</script>
+</script>-->

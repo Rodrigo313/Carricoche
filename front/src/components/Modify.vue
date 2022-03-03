@@ -14,7 +14,7 @@
                 <div v-if="this.informacionCommercial == anuncios.id_anuncio">
                     <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Coche</span>
-              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" required>
+              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" required value="{{anuncios.coche}}">
           </div>
 
           <div class="input-group mb-3">
