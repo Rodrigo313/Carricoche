@@ -46,7 +46,7 @@
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Familia numerosa(10%)</span>
               <div class="form-check">
-                <input id="familia_numerosa" type="checkbox"  v-model="familia_numerosa" @change="check($event)">
+                <input id="familia_numerosa" type="checkbox" v-model="familia_numerosa" @change="check($event)">
               </div>
 
               <span class="input-group-text" id="basic-addon2">Mayor de 55 años(15%)</span>
@@ -131,10 +131,16 @@ export default{
         unaOpcion(){
             var famNum = document.getElementById("familia_numerosa");
             var viejo = document.getElementById("viejo");
-            if(famNum.disabled){
-                famNum.disabled = false;
-            }else{
+            if (famNum.checked == true) {
+                viejo.disabled = true;
+            }else if(famNum.checked == false){
+                viejo.disabled = false;
+            }
+
+            if (viejo.checked == true) {
                 famNum.disabled = true;
+            }else if(viejo.checked == false){
+                famNum.disabled = false;
             }
         },
         check: function(e) {
