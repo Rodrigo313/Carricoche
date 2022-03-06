@@ -86,6 +86,7 @@ export default {
       },
       obtenerCommercial: function(id){
         this.commercial = id;
+        console.log("entra");
       }
   },
   created(){

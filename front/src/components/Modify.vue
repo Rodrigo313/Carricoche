@@ -5,16 +5,15 @@
 
     <body>
 
-        <form v-for="(anuncios) in anuncio" :key="anuncios">
+        <form id="formulario" v-for="(anuncios) in anuncio" :key="anuncios">
             <div v-if="this.informacionCommercial == anuncios.id_anuncio">
                         <h2>Datos a modificar</h2>
-            <h4>Debe rellenar todos los campos</h4>
             <span v-for="(anuncios) in anuncio" :key="anuncios">
 
                 <div v-if="this.informacionCommercial == anuncios.id_anuncio">
                     <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Coche</span>
-              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" required value="{{anuncios.coche}}">
+              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" required>
           </div>
 
           <div class="input-group mb-3">
@@ -27,7 +26,7 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="number" max="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" required>
+              <input type="number" maxlength="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" required>
           </div>
 
           <div class="input-group mb-3">
@@ -51,6 +50,9 @@
 
                     <div class="input-group mb-3">
                         <button type="submit" class="btn btn-primary mb-3" @click="enviar">Modificar</button>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button id="cancelar" type="submit" class="btn btn-danger" @click="cerrarFormulario">Cancelar</button>
                     </div>
                 </div>
             </span>
@@ -91,7 +93,8 @@ export default{
         }),
         axios.get("http://localhost:8080/carricoche/v1/provincias").then((response) => {
             this.provincias = response.data
-      })
+      }),
+      this.obtenerFormulario(this.informacionCommercial);
    },
    methods: {
         informacionAnuncios: function(coche, provincia, telefono, correo_electronico, precio, segunda_mano, id_anuncio){
@@ -115,6 +118,23 @@ export default{
             };
             axios.put('http://localhost:8080/carricoche/v1/anuncios/'+ this.informacionCommercial, post);
             location.reload();
+        },
+        async obtenerFormulario(id_anuncio) {
+            await axios.get("http://localhost:8080/carricoche/v1/anuncios/"+id_anuncio).then((response) => {
+                this.formulario = response.data[0];
+                this.obtenerDatosForm();
+            });
+        },
+        obtenerDatosForm(){
+            this.var1=this.formulario.coche
+            this.var2=this.formulario.id_provincia
+            this.var3=this.formulario.telefono;
+            this.var4=this.formulario.correo_electronico;
+            this.var5=this.formulario.precio;
+            this.var6=this.formulario.segunda_mano;
+        },
+        cerrarFormulario(){
+            document.getElementById("formulario").disabled = true;
         }
    }
 }
