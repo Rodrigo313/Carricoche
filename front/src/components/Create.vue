@@ -7,12 +7,12 @@
         <form>
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Coche</span>
-              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" required>
+              <input type="text" class="form-control" aria-label="Coche" aria-describedby="basic-addon1" v-model="var1" @keyup="habilitarBoton(1)" required>
           </div>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Provincia</span>
-              <select class="form-select" aria-label="Default select example" v-model="var2" required>
+              <select class="form-select" aria-label="Default select example" v-model="var2" @change="habilitarBoton(2)" required>
                   <option v-for="(provincia, index) in provincias" :key="index" v-bind:value="provincia.id_provincia">{{provincia.nombre}}</option>
               </select>
           </div>
@@ -20,16 +20,16 @@
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="number" maxlength="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" required>
+              <input type="text" pattern="[0-9]+" maxlength="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="var3" @keyup="habilitarBoton(3)" required>
           </div>
 
           <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3" v-model="var4" required>
+              <input type="email" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3" v-model="var4" @keyup="habilitarBoton(4)" required>
           </div>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Precio</span>
-              <input type="number" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5" required>
+              <input type="number" class="form-control" aria-label="Precio" aria-describedby="basic-addon2" v-model="var5" @keyup="habilitarBoton(5)" required>
           </div>
 
             <div class="input-group mb-3">
@@ -41,7 +41,7 @@
           </div>
 
           <div class="input-group mb-3">
-              <button type="submit" class="btn btn-primary mb-3" @click="enviar">Crear</button>
+              <button id="boton" type="submit" class="btn btn-primary mb-3" @click="enviar" disabled>Crear</button>
           </div>
         </form>
       </body>
@@ -60,7 +60,12 @@ export default {
           var3: '',
           var4: '',
           var5: '',
-          var6: false
+          var6: false,
+          varCoche: false,
+          varProvincia: false,
+          varTelefono: false,
+          varCorreo: false,
+          varPrecio: false
       }
   },
   methods:{
@@ -81,10 +86,50 @@ export default {
         axios.post('http://localhost:8080/carricoche/v1/anuncios', post)
         .then((result) => {
             console.log(result)
-        })
+        });
     },
     cambio(){
         this.var6 = !this.var6;
+    },
+    habilitarBoton(index){
+      switch(index){
+        case 1:
+          if(this.var1 == ""){
+            this.varCoche = false;
+          }else{
+            this.varCoche = true;
+          }
+        break;
+        case 2:
+          this.varProvincia = true;
+        break;
+        case 3:
+          if(this.var3 == ""){
+            this.varTelefono = false;
+          }else if(this.var3.length == 9){
+            this.varTelefono = true;
+          }
+        break;
+        case 4:
+          if(this.var4 == ""){
+            this.varCorreo = false;
+          }else if(this.var4.includes("@")){
+            this.varCorreo = true;
+          }
+        break;
+        case 5:
+          if(this.var5 == ""){
+            this.varPrecio = false;
+          }else{
+            this.varPrecio = true;
+          }
+        break
+      }
+      if(this.varCoche && this.varProvincia && this.varTelefono && this.varCorreo && this.varPrecio){
+        document.getElementById("boton").disabled = false;
+      }else{
+        document.getElementById("boton").disabled = true;
+      }
     }
   },
   created(){
