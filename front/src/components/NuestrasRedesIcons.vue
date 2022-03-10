@@ -49,14 +49,14 @@ export default {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background-color: #111111;
+  background-color: darkred;
   border-radius: 20px;
   transition: all 0.2s ease-in-out;
 }
 
 .nuestras-redes-icons-main-container:hover {
-  background-color: #1c1c1c;
-  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.4);
+  background-color: red;
+  box-shadow: 0px 0px 14px 0px rgba(255, 0, 0, 0.4);
 }
 
 .nuestras-redes-icons-main-container:hover img {
