@@ -42,7 +42,7 @@
               <span class="input-group-text" id="basic-addon2">Segunda mano</span>
 
               <div class="form-check">
-                <input id="segunda" type="checkbox" name="segunda">
+                <input id="segunda" type="checkbox" name="segunda" @click="cambio()">
               </div>
           </div>
           <div class="error" v-if="var6.required">Campo obligatorio.</div>
@@ -132,6 +132,9 @@ export default{
             this.var4=this.formulario.correo_electronico;
             this.var5=this.formulario.precio;
             this.var6=this.formulario.segunda_mano;
+        },
+        cambio(){
+        this.var6 = !this.var6;
         },
         cerrarFormulario(){
             document.getElementById("formulario").disabled = true;

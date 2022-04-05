@@ -16,17 +16,14 @@
   </div>
   <router-view/>
   <Cookies position="bottom"/>
-  <!--<adsense></adsense>-->
 </template>
 
 <script>
 import Cookies from './components/Cookies.vue'
-//import Adsense from './components/Adsense.vue'
 
 export default {
       components:{
-        Cookies,
-        //Adsense
+        Cookies
       }
 }
 </script>
@@ -43,7 +40,6 @@ export default {
 #menu {
   padding: 40px;
   margin-top: 35px;
-  /*position: fixed;*/
   margin: 0 auto;
   left: 670px;
   top: 0;
@@ -73,7 +69,6 @@ export default {
   width: 100px;
   height: 100px;
   margin-top: 30px;
-  /*position: fixed;*/
   left: 550px;
   top: 0;
   right: 0;

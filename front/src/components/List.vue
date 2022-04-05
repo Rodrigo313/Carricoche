@@ -16,29 +16,29 @@
                 <div>
                     <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Nombre</span>
-              <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" v-model="nombre" @keyup="habilitarBoton(1)" required>
+              <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" v-model="nombre" @keyup="habilitarBoton(1)">
           </div>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Apellidos</span>
-              <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" v-model="apellidos" @keyup="habilitarBoton(2)" required>
+              <input type="text" class="form-control" aria-label="Nombre" aria-describedby="basic-addon1" v-model="apellidos" @keyup="habilitarBoton(2)">
           </div>
 
           <br>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Teléfono</span>
-              <input type="text" pattern="[0-9]+" maxlength="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="numero" @keyup="habilitarBoton(3)" required>
+              <input type="text" pattern="[0-9]+" maxlength="9" class="form-control" aria-label="Teléfono" aria-describedby="basic-addon2" v-model="numero" @keyup="habilitarBoton(3)">
           </div>
 
 
           <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3" v-model="correo" @keyup="habilitarBoton(4)" required>
+              <input type="email" class="form-control" placeholder="ejemplo@gmail.com" aria-label="Correo electrónico" aria-describedby="basic-addon3" v-model="correo" @keyup="habilitarBoton(4)">
           </div>
 
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Dirección</span>
-              <input type="text" class="form-control" aria-label="Dirección" aria-describedby="basic-addon2" v-model="ubicacion" @keyup="habilitarBoton(5)" required>
+              <input type="text" class="form-control" aria-label="Dirección" aria-describedby="basic-addon2" v-model="ubicacion" @keyup="habilitarBoton(5)">
           </div>
 
           <h4>Opciones de descuento(Elija una opción)</h4>
@@ -63,7 +63,7 @@
                         <button id="boton" type="submit" class="btn btn-primary mb-3" @click="borrar" disabled>Comprar</button>
                     </div>
                     <div class="input-group mb-3">
-                    <button id="cancelar" type="submit" class="btn btn-danger" @click="cerrarFormulario">Cancelar</button>
+                        <button id="cancelar" type="submit" class="btn btn-danger" @click="cerrarFormulario">Cancelar</button>
                     </div>
                 </div>
             </span>
@@ -103,6 +103,7 @@ export default{
    created(){
         axios.get("http://localhost:8080/carricoche/v1/anuncios/" + this.informacionCompra).then((response) => {
             this.anuncio = response.data[0];
+            this.precio_final = response.data[0].precio;
         }),
         axios.get("http://localhost:8080/carricoche/v1/provincias").then((response) => {
             this.provincias = response.data
@@ -115,7 +116,7 @@ export default{
                         precio: this.anuncio.precio,
                         segunda_mano: this.anuncio.segunda_mano,
                         familia_numerosa: this.familia_numerosa,
-                        rango_edad: this.rango_edad
+                        rango_edad: this.rango_edad,
                         }
             axios.post('http://localhost:8080/carricoche/descuento/aplicar', this.coche).then((response) => {
             this.precio_final = response.data
